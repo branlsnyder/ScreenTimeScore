@@ -1,11 +1,14 @@
 onset_ms_1,state_1,text_1,onset_ms_2,state_2,text_2,onset_ms_3,state_3,text_3,onset_ms_4,state_4,text_4,onset_ms_5,state_5,text_5
-0,phoneDown,Begin in 3,,,,,,,,,,,,
-1000,phoneDown,Begin in 2,,,,,,,,,,,,
-2000,phoneDown,Begin in 1,,,,,,,,,,,,
-3000,phoneDown,Phone Down,,,,,,,,,,,,
-4000,phoneDown,TEST,0,bacon02,,0,bacon03,,0,bacon04,,0,bacon05,
-5000,phoneUp,jdskhfdjhsfdksfjdhsfkjdhskjdhf,8000,phoneUp,Phone Up,,,,,,,,,
-6000,bacon01,,9000,bacon02,,,,,,,,,,
-7000,phoneDown,Phone Up,10000,phoneDown,Phone Down,,,,,,,,,
-,,,12000,phoneUp,Phone Up,,,,,,,,,
-8000,phoneUp,Phone Up,,,,,,,,,,,,
+0,phoneDown,Begin in 3,0,phoneDown,Begin in 3,0,phoneDown,Begin in 3,0,phoneDown,Begin in 3,0,phoneDown,Begin in 3
+1000,phoneDown,Begin in 2,1000,phoneDown,Begin in 2,1000,phoneDown,Begin in 2,1000,phoneDown,Begin in 2,1000,phoneDown,Begin in 2
+2000,phoneDown,Begin in 1,2000,phoneDown,Begin in 1,2000,phoneDown,Begin in 1,2000,phoneDown,Begin in 1,2000,phoneDown,Begin in 1
+3000,phoneDown,Phone Down,3000,phoneDown,Phone Down,3000,phoneDown,Phone Down,3000,phoneDown,Phone Down,3000,phoneDown,Phone Down
+4000,phoneUp,Phone Up,4066,phoneUp,Phone Up,4132,phoneUp,Phone Up,4200,phoneUp,Phone Up,4266.4,phoneUp,Phone Up
+5000,bacon01,,5133,bacon02,,5264,bacon03,,5400,bacon04,,5532.8,bacon05,
+6000,phoneDown,Phone Down,6199,phoneDown,Phone Down,6396,phoneDown,Phone Down,6600,phoneDown,Phone Down,6799.2,phoneDown,Phone Down
+7000,phoneUp,Phone Up,7266,phoneUp,Phone Up,7528,phoneUp,Phone Up,7800,phoneUp,Phone Up,8065.6,phoneUp,Phone Up
+8000,bacon01,,8332,bacon02,,8660,bacon03,,9000,bacon04,,9332,bacon05,
+9000,phoneDown,Phone Down,9398,phoneDown,Phone Down,9792,phoneDown,Phone Down,10200,phoneDown,Phone Down,10598.4,phoneDown,Phone Down
+10000,phoneUp,Phone Up,10465,phoneUp,Phone Up,10924,phoneUp,Phone Up,11400,phoneUp,Phone Up,11864.8,phoneUp,Phone Up
+11000,bacon01,,11531,bacon02,,12056,bacon03,,12600,bacon04,,13131.2,bacon05,
+12000,bacon01,,12598,,,13188,,,13800,,,14397.6,,
