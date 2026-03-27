@@ -1,0 +1,13 @@
+onset_ms,state
+0,phoneDown
+2000,phoneUp
+3500,bacon01
+5000,phoneDown
+7200,phoneUp
+8800,bacon01
+10000,phoneDown
+12500,phoneUp
+14000,bacon01
+16000,phoneDown
+18000,phoneUp
+20000,phoneDown
