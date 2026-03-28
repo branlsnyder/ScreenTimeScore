@@ -294,7 +294,7 @@ function draw() {
     noStroke();
     text(currentText, width / 2, height / 2);
   } else if (currentState === "bacon01") {
-    background(255);
+    background(0);
     let scale = min(width / baconImg1.width, height / baconImg1.height) * 0.85;
     image(
       baconImg1,
@@ -304,7 +304,7 @@ function draw() {
       baconImg1.height * scale,
     );
   } else if (currentState === "bacon02") {
-    background(255);
+    background(0);
     let scale = min(width / baconImg2.width, height / baconImg2.height) * 0.85;
     image(
       baconImg2,
@@ -314,7 +314,7 @@ function draw() {
       baconImg2.height * scale,
     );
   } else if (currentState === "bacon03") {
-    background(255);
+    background(0);
     let scale = min(width / baconImg3.width, height / baconImg3.height) * 0.85;
     image(
       baconImg3,
@@ -324,7 +324,7 @@ function draw() {
       baconImg3.height * scale,
     );
   } else if (currentState === "bacon04") {
-    background(255);
+    background(0);
     let scale = min(width / baconImg4.width, height / baconImg4.height) * 0.85;
     image(
       baconImg4,
@@ -334,7 +334,101 @@ function draw() {
       baconImg4.height * scale,
     );
   } else if (currentState === "bacon05") {
-    background(255);
+    background(0);
+    let scale = min(width / baconImg5.width, height / baconImg5.height) * 0.85;
+    image(
+      baconImg5,
+      width / 2,
+      height / 2,
+      baconImg5.width * scale,
+      baconImg5.height * scale,
+    );
+  } else if (currentState === "flash50") {
+    let cycleDuration = 1200;
+    let flashDuration = 100;
+    let cyclePosition = elapsed % cycleDuration;
+    if (cyclePosition < flashDuration) {
+      background(255);
+    } else {
+      background(0);
+    }
+  } else if (currentState === "bacon01flash") {
+    let cycleDuration = 1200;
+    let flashDuration = 100;
+    let cyclePosition = elapsed % cycleDuration;
+    if (cyclePosition < flashDuration) {
+      background(255);
+    } else {
+      background(0);
+    }
+    let scale = min(width / baconImg1.width, height / baconImg1.height) * 0.85;
+    image(
+      baconImg1,
+      width / 2,
+      height / 2,
+      baconImg1.width * scale,
+      baconImg1.height * scale,
+    );
+  } else if (currentState === "bacon02flash") {
+    let cycleDuration = 1200;
+    let flashDuration = 100;
+    let cyclePosition = elapsed % cycleDuration;
+    if (cyclePosition < flashDuration) {
+      background(255);
+    } else {
+      background(0);
+    }
+    let scale = min(width / baconImg2.width, height / baconImg2.height) * 0.85;
+    image(
+      baconImg2,
+      width / 2,
+      height / 2,
+      baconImg2.width * scale,
+      baconImg2.height * scale,
+    );
+  } else if (currentState === "bacon03flash") {
+    let cycleDuration = 1200;
+    let flashDuration = 100;
+    let cyclePosition = elapsed % cycleDuration;
+    if (cyclePosition < flashDuration) {
+      background(255);
+    } else {
+      background(0);
+    }
+    let scale = min(width / baconImg3.width, height / baconImg3.height) * 0.85;
+    image(
+      baconImg3,
+      width / 2,
+      height / 2,
+      baconImg3.width * scale,
+      baconImg3.height * scale,
+    );
+  } else if (currentState === "bacon04flash") {
+    let cycleDuration = 1200;
+    let flashDuration = 100;
+    let cyclePosition = elapsed % cycleDuration;
+    if (cyclePosition < flashDuration) {
+      background(255);
+    } else {
+      background(0);
+    }
+    let scale = min(width / baconImg4.width, height / baconImg4.height) * 0.85;
+    image(
+      baconImg4,
+      width / 2,
+      height / 2,
+      baconImg4.width * scale,
+      baconImg4.height * scale,
+    );
+  } else if (currentState === "bacon05flash") {
+    let cycleDuration = 1200;
+    let flashDuration = 100;
+    let cyclePosition = elapsed % cycleDuration;
+    if (cyclePosition < flashDuration) {
+      background(255);
+    } else {
+      background(0);
+    }
     let scale = min(width / baconImg5.width, height / baconImg5.height) * 0.85;
     image(
       baconImg5,
@@ -450,6 +544,7 @@ function getStateColor(state) {
   if (!state || state === "waiting") return color(100, 100, 100);
   if (state === "phoneUp") return color(255, 255, 255);
   if (state === "phoneDown") return color(80, 80, 80);
+  if (state && state.includes("flash")) return color(255, 100, 255);
   if (state && state.startsWith("bacon")) return color(255, 200, 100);
   return color(150, 150, 150);
 }
