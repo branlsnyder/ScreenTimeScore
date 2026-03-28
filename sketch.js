@@ -283,6 +283,8 @@ function draw() {
     lastStateUpdate = Date.now();
   }
 
+  ///CURRENT STATE DRAWING LOGIC////////////////////////////////////////////////////
+
   if (currentState === "phoneUp") {
     background(255);
     fill(0);
