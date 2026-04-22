@@ -305,46 +305,46 @@ function draw() {
       baconImg1.width * scale,
       baconImg1.height * scale,
     );
-  // } else if (currentState === "bacon02") {
-  //   background(0);
-  //   let scale = min(width / baconImg2.width, height / baconImg2.height) * 0.85;
-  //   image(
-  //     baconImg2,
-  //     width / 2,
-  //     height / 2,
-  //     baconImg2.width * scale,
-  //     baconImg2.height * scale,
-  //   );
-  // } else if (currentState === "bacon03") {
-  //   background(0);
-  //   let scale = min(width / baconImg3.width, height / baconImg3.height) * 0.85;
-  //   image(
-  //     baconImg3,
-  //     width / 2,
-  //     height / 2,
-  //     baconImg3.width * scale,
-  //     baconImg3.height * scale,
-  //   );
-  // } else if (currentState === "bacon04") {
-  //   background(0);
-  //   let scale = min(width / baconImg4.width, height / baconImg4.height) * 0.85;
-  //   image(
-  //     baconImg4,
-  //     width / 2,
-  //     height / 2,
-  //     baconImg4.width * scale,
-  //     baconImg4.height * scale,
-  //   );
-  // } else if (currentState === "bacon05") {
-  //   background(0);
-  //   let scale = min(width / baconImg5.width, height / baconImg5.height) * 0.85;
-  //   image(
-  //     baconImg5,
-  //     width / 2,
-  //     height / 2,
-  //     baconImg5.width * scale,
-  //     baconImg5.height * scale,
-  //   );
+    // } else if (currentState === "bacon02") {
+    //   background(0);
+    //   let scale = min(width / baconImg2.width, height / baconImg2.height) * 0.85;
+    //   image(
+    //     baconImg2,
+    //     width / 2,
+    //     height / 2,
+    //     baconImg2.width * scale,
+    //     baconImg2.height * scale,
+    //   );
+    // } else if (currentState === "bacon03") {
+    //   background(0);
+    //   let scale = min(width / baconImg3.width, height / baconImg3.height) * 0.85;
+    //   image(
+    //     baconImg3,
+    //     width / 2,
+    //     height / 2,
+    //     baconImg3.width * scale,
+    //     baconImg3.height * scale,
+    //   );
+    // } else if (currentState === "bacon04") {
+    //   background(0);
+    //   let scale = min(width / baconImg4.width, height / baconImg4.height) * 0.85;
+    //   image(
+    //     baconImg4,
+    //     width / 2,
+    //     height / 2,
+    //     baconImg4.width * scale,
+    //     baconImg4.height * scale,
+    //   );
+    // } else if (currentState === "bacon05") {
+    //   background(0);
+    //   let scale = min(width / baconImg5.width, height / baconImg5.height) * 0.85;
+    //   image(
+    //     baconImg5,
+    //     width / 2,
+    //     height / 2,
+    //     baconImg5.width * scale,
+    //     baconImg5.height * scale,
+    //   );
   } else if (currentState === "flash50") {
     let cycleDuration = 1200;
     let flashDuration = 100;
@@ -371,193 +371,198 @@ function draw() {
       baconImg1.width * scale,
       baconImg1.height * scale,
     );
-  // } else if (currentState === "bacon02flash") {
-  //   let cycleDuration = 1200;
-  //   let flashDuration = 100;
-  //   let cyclePosition = elapsed % cycleDuration;
-  //   if (cyclePosition < flashDuration) {
-  //     background(255);
-  //   } else {
-  //     background(0);
-  //   }
-  //   let scale = min(width / baconImg2.width, height / baconImg2.height) * 0.85;
-  //   image(
-  //     baconImg2,
-  //     width / 2,
-  //     height / 2,
-  //     baconImg2.width * scale,
-  //     baconImg2.height * scale,
-  //   );
-  // } else if (currentState === "bacon03flash") {
-  //   let cycleDuration = 1200;
-  //   let flashDuration = 100;
-  //   let cyclePosition = elapsed % cycleDuration;
-  //   if (cyclePosition < flashDuration) {
-  //     background(255);
-  //   } else {
-  //     background(0);
-  //   }
-  //   let scale = min(width / baconImg3.width, height / baconImg3.height) * 0.85;
-  //   image(
-  //     baconImg3,
-  //     width / 2,
-  //     height / 2,
-  //     baconImg3.width * scale,
-  //     baconImg3.height * scale,
-  //   );
-  // } else if (currentState === "bacon04flash") {
-  //   let cycleDuration = 1200;
-  //   let flashDuration = 100;
-  //   let cyclePosition = elapsed % cycleDuration;
-  //   if (cyclePosition < flashDuration) {
-  //     background(255);
-  //   } else {
-  //     background(0);
-  //   }
-  //   let scale = min(width / baconImg4.width, height / baconImg4.height) * 0.85;
-  //   image(
-  //     baconImg4,
-  //     width / 2,
-  //     height / 2,
-  //     baconImg4.width * scale,
-  //     baconImg4.height * scale,
-  //   );
-  // } else if (currentState === "bacon05flash") {
-  //   let cycleDuration = 1200;
-  //   let flashDuration = 100;
-  //   let cyclePosition = elapsed % cycleDuration;
-  //   if (cyclePosition < flashDuration) {
-  //     background(255);
-  //   } else {
-  //     background(0);
-  //   }
-  //   let scale = min(width / baconImg5.width, height / baconImg5.height) * 0.85;
-  //   image(
-  //     baconImg5,
-  //     width / 2,
-  //     height / 2,
-  //     baconImg5.width * scale,
-  //     baconImg5.height * scale,
-  //   );
-  // }
+    // } else if (currentState === "bacon02flash") {
+    //   let cycleDuration = 1200;
+    //   let flashDuration = 100;
+    //   let cyclePosition = elapsed % cycleDuration;
+    //   if (cyclePosition < flashDuration) {
+    //     background(255);
+    //   } else {
+    //     background(0);
+    //   }
+    //   let scale = min(width / baconImg2.width, height / baconImg2.height) * 0.85;
+    //   image(
+    //     baconImg2,
+    //     width / 2,
+    //     height / 2,
+    //     baconImg2.width * scale,
+    //     baconImg2.height * scale,
+    //   );
+    // } else if (currentState === "bacon03flash") {
+    //   let cycleDuration = 1200;
+    //   let flashDuration = 100;
+    //   let cyclePosition = elapsed % cycleDuration;
+    //   if (cyclePosition < flashDuration) {
+    //     background(255);
+    //   } else {
+    //     background(0);
+    //   }
+    //   let scale = min(width / baconImg3.width, height / baconImg3.height) * 0.85;
+    //   image(
+    //     baconImg3,
+    //     width / 2,
+    //     height / 2,
+    //     baconImg3.width * scale,
+    //     baconImg3.height * scale,
+    //   );
+    // } else if (currentState === "bacon04flash") {
+    //   let cycleDuration = 1200;
+    //   let flashDuration = 100;
+    //   let cyclePosition = elapsed % cycleDuration;
+    //   if (cyclePosition < flashDuration) {
+    //     background(255);
+    //   } else {
+    //     background(0);
+    //   }
+    //   let scale = min(width / baconImg4.width, height / baconImg4.height) * 0.85;
+    //   image(
+    //     baconImg4,
+    //     width / 2,
+    //     height / 2,
+    //     baconImg4.width * scale,
+    //     baconImg4.height * scale,
+    //   );
+    // } else if (currentState === "bacon05flash") {
+    //   let cycleDuration = 1200;
+    //   let flashDuration = 100;
+    //   let cyclePosition = elapsed % cycleDuration;
+    //   if (cyclePosition < flashDuration) {
+    //     background(255);
+    //   } else {
+    //     background(0);
+    //   }
+    //   let scale = min(width / baconImg5.width, height / baconImg5.height) * 0.85;
+    //   image(
+    //     baconImg5,
+    //     width / 2,
+    //     height / 2,
+    //     baconImg5.width * scale,
+    //     baconImg5.height * scale,
+    //   );
+    // }
 
-  if (debugMode) {
-    drawDebugOverlay(elapsed);
-  }
-}
-
-function drawDebugOverlay(elapsed) {
-  push();
-  textAlign(LEFT, TOP);
-  textSize(14);
-  fill(255, 255, 0);
-  noStroke();
-
-  let debugY = 50;
-  let debugX = 10;
-  let lineHeight = 18;
-
-  fill(0, 0, 0, 150);
-  rect(5, 45, 200, 110, 5);
-
-  fill(255, 255, 0);
-  text(`Player: ${selectedPart}`, debugX, debugY);
-  text(`Elapsed: ${(elapsed / 1000).toFixed(2)}s`, debugX, debugY + lineHeight);
-  text(`State: ${currentState}`, debugX, debugY + lineHeight * 2);
-  text(
-    `Event: ${eventIndex} / ${events.length}`,
-    debugX,
-    debugY + lineHeight * 3,
-  );
-  text(
-    `Clock Offset: ${clockOffset.toFixed(0)}ms`,
-    debugX,
-    debugY + lineHeight * 4,
-  );
-  text(
-    `Next: ${eventIndex < events.length ? events[eventIndex].time + "ms" : "done"}`,
-    debugX,
-    debugY + lineHeight * 5,
-  );
-  pop();
-}
-
-function drawHostScreen() {
-  background(30);
-  fill(255);
-  noStroke();
-  textSize(36);
-  text("Host Control Panel", width / 2, 80);
-
-  textSize(24);
-  text("Connected Players:", width / 2, 140);
-
-  textSize(16);
-  textAlign(LEFT, TOP);
-
-  if (connectedClients.length === 0) {
-    fill(150);
-    textAlign(CENTER, CENTER);
-    text("No players connected yet", width / 2, 200);
-  } else {
-    connectedClients.sort((a, b) => parseInt(a.part) - parseInt(b.part));
-
-    let boxWidth = 280;
-    let boxHeight = 80;
-    let startY = 170;
-    let cols = min(3, connectedClients.length);
-    let totalWidth = cols * boxWidth + (cols - 1) * 20;
-    let startX = (width - totalWidth) / 2;
-
-    for (let i = 0; i < connectedClients.length; i++) {
-      let c = connectedClients[i];
-      let col = i % cols;
-      let row = floor(i / cols);
-      let x = startX + col * (boxWidth + 20);
-      let y = startY + row * (boxHeight + 15);
-
-      let stateColor = getStateColor(c.state);
-      fill(stateColor);
-      rect(x, y, boxWidth, boxHeight, 8);
-
-      fill(0);
-      textSize(20);
-      text(`Player ${c.part}`, x + 10, y + 10);
-
-      textSize(14);
-      fill(50);
-      text(`State: ${c.state || "waiting"}`, x + 10, y + 35);
-      text(
-        `Event: ${c.eventIndex || 0}  |  ${((c.elapsed || 0) / 1000).toFixed(1)}s`,
-        x + 10,
-        y + 55,
-      );
+    if (debugMode) {
+      drawDebugOverlay(elapsed);
     }
   }
 
-  textAlign(CENTER, CENTER);
+  function drawDebugOverlay(elapsed) {
+    push();
+    textAlign(LEFT, TOP);
+    textSize(14);
+    fill(255, 255, 0);
+    noStroke();
 
-  if (startBtn) {
-    startBtn.position(width / 2 - startBtn.elt.offsetWidth / 2, height - 150);
-  }
-}
+    let debugY = 50;
+    let debugX = 10;
+    let lineHeight = 18;
 
-function getStateColor(state) {
-  if (!state || state === "waiting") return color(100, 100, 100);
-  if (state === "phoneUp") return color(255, 255, 255);
-  if (state === "phoneDown") return color(80, 80, 80);
-  if (state && state.includes("flash")) return color(255, 100, 255);
-  if (state && state.startsWith("bacon")) return color(255, 200, 100);
-  return color(150, 150, 150);
-}
+    fill(0, 0, 0, 150);
+    rect(5, 45, 200, 110, 5);
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  if (partButtons.length > 0) positionButtons();
-  if (startBtn) {
-    startBtn.position(
-      width / 2 - startBtn.elt.offsetWidth / 2,
-      height / 2 + 100,
+    fill(255, 255, 0);
+    text(`Player: ${selectedPart}`, debugX, debugY);
+    text(
+      `Elapsed: ${(elapsed / 1000).toFixed(2)}s`,
+      debugX,
+      debugY + lineHeight,
     );
+    text(`State: ${currentState}`, debugX, debugY + lineHeight * 2);
+    text(
+      `Event: ${eventIndex} / ${events.length}`,
+      debugX,
+      debugY + lineHeight * 3,
+    );
+    text(
+      `Clock Offset: ${clockOffset.toFixed(0)}ms`,
+      debugX,
+      debugY + lineHeight * 4,
+    );
+    text(
+      `Next: ${eventIndex < events.length ? events[eventIndex].time + "ms" : "done"}`,
+      debugX,
+      debugY + lineHeight * 5,
+    );
+    pop();
+  }
+
+  function drawHostScreen() {
+    background(30);
+    fill(255);
+    noStroke();
+    textSize(36);
+    text("Host Control Panel", width / 2, 80);
+
+    textSize(24);
+    text("Connected Players:", width / 2, 140);
+
+    textSize(16);
+    textAlign(LEFT, TOP);
+
+    if (connectedClients.length === 0) {
+      fill(150);
+      textAlign(CENTER, CENTER);
+      text("No players connected yet", width / 2, 200);
+    } else {
+      connectedClients.sort((a, b) => parseInt(a.part) - parseInt(b.part));
+
+      let boxWidth = 280;
+      let boxHeight = 80;
+      let startY = 170;
+      let cols = min(3, connectedClients.length);
+      let totalWidth = cols * boxWidth + (cols - 1) * 20;
+      let startX = (width - totalWidth) / 2;
+
+      for (let i = 0; i < connectedClients.length; i++) {
+        let c = connectedClients[i];
+        let col = i % cols;
+        let row = floor(i / cols);
+        let x = startX + col * (boxWidth + 20);
+        let y = startY + row * (boxHeight + 15);
+
+        let stateColor = getStateColor(c.state);
+        fill(stateColor);
+        rect(x, y, boxWidth, boxHeight, 8);
+
+        fill(0);
+        textSize(20);
+        text(`Player ${c.part}`, x + 10, y + 10);
+
+        textSize(14);
+        fill(50);
+        text(`State: ${c.state || "waiting"}`, x + 10, y + 35);
+        text(
+          `Event: ${c.eventIndex || 0}  |  ${((c.elapsed || 0) / 1000).toFixed(1)}s`,
+          x + 10,
+          y + 55,
+        );
+      }
+    }
+
+    textAlign(CENTER, CENTER);
+
+    if (startBtn) {
+      startBtn.position(width / 2 - startBtn.elt.offsetWidth / 2, height - 150);
+    }
+  }
+
+  function getStateColor(state) {
+    if (!state || state === "waiting") return color(100, 100, 100);
+    if (state === "phoneUp") return color(255, 255, 255);
+    if (state === "phoneDown") return color(80, 80, 80);
+    if (state && state.includes("flash")) return color(255, 100, 255);
+    if (state && state.startsWith("bacon")) return color(255, 200, 100);
+    return color(150, 150, 150);
+  }
+
+  function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+    if (partButtons.length > 0) positionButtons();
+    if (startBtn) {
+      startBtn.position(
+        width / 2 - startBtn.elt.offsetWidth / 2,
+        height / 2 + 100,
+      );
+    }
   }
 }
