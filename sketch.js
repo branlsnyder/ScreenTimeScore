@@ -4,10 +4,10 @@ let currentState = "phoneDown";
 let currentText = "";
 let table;
 let baconImg1;
-let baconImg2;
-let baconImg3;
-let baconImg4;
-let baconImg5;
+// let baconImg2;
+// let baconImg3;
+// let baconImg4;
+// let baconImg5;
 let selectedPart = null;
 let startTime = 0;
 let partButtons = [];
@@ -25,10 +25,10 @@ let lastStateUpdate = 0;
 function preload() {
   table = loadTable("onsets.csv", "csv", "header");
   baconImg1 = loadImage("images/bacon_figure-lying-flat.jpg");
-  baconImg2 = loadImage("images/bacon_falling-figure.jpg");
-  baconImg3 = loadImage("images/bacon_man-on-bed.jpg");
-  baconImg4 = loadImage("images/bacon_fallen-figure.jpg");
-  baconImg5 = loadImage("images/bacon_collapsed-figure.jpg");
+  // baconImg2 = loadImage("images/bacon_falling-figure.jpg");
+  // baconImg3 = loadImage("images/bacon_man-on-bed.jpg");
+  // baconImg4 = loadImage("images/bacon_fallen-figure.jpg");
+  // baconImg5 = loadImage("images/bacon_collapsed-figure.jpg");
 }
 
 function setup() {
@@ -305,46 +305,46 @@ function draw() {
       baconImg1.width * scale,
       baconImg1.height * scale,
     );
-  } else if (currentState === "bacon02") {
-    background(0);
-    let scale = min(width / baconImg2.width, height / baconImg2.height) * 0.85;
-    image(
-      baconImg2,
-      width / 2,
-      height / 2,
-      baconImg2.width * scale,
-      baconImg2.height * scale,
-    );
-  } else if (currentState === "bacon03") {
-    background(0);
-    let scale = min(width / baconImg3.width, height / baconImg3.height) * 0.85;
-    image(
-      baconImg3,
-      width / 2,
-      height / 2,
-      baconImg3.width * scale,
-      baconImg3.height * scale,
-    );
-  } else if (currentState === "bacon04") {
-    background(0);
-    let scale = min(width / baconImg4.width, height / baconImg4.height) * 0.85;
-    image(
-      baconImg4,
-      width / 2,
-      height / 2,
-      baconImg4.width * scale,
-      baconImg4.height * scale,
-    );
-  } else if (currentState === "bacon05") {
-    background(0);
-    let scale = min(width / baconImg5.width, height / baconImg5.height) * 0.85;
-    image(
-      baconImg5,
-      width / 2,
-      height / 2,
-      baconImg5.width * scale,
-      baconImg5.height * scale,
-    );
+  // } else if (currentState === "bacon02") {
+  //   background(0);
+  //   let scale = min(width / baconImg2.width, height / baconImg2.height) * 0.85;
+  //   image(
+  //     baconImg2,
+  //     width / 2,
+  //     height / 2,
+  //     baconImg2.width * scale,
+  //     baconImg2.height * scale,
+  //   );
+  // } else if (currentState === "bacon03") {
+  //   background(0);
+  //   let scale = min(width / baconImg3.width, height / baconImg3.height) * 0.85;
+  //   image(
+  //     baconImg3,
+  //     width / 2,
+  //     height / 2,
+  //     baconImg3.width * scale,
+  //     baconImg3.height * scale,
+  //   );
+  // } else if (currentState === "bacon04") {
+  //   background(0);
+  //   let scale = min(width / baconImg4.width, height / baconImg4.height) * 0.85;
+  //   image(
+  //     baconImg4,
+  //     width / 2,
+  //     height / 2,
+  //     baconImg4.width * scale,
+  //     baconImg4.height * scale,
+  //   );
+  // } else if (currentState === "bacon05") {
+  //   background(0);
+  //   let scale = min(width / baconImg5.width, height / baconImg5.height) * 0.85;
+  //   image(
+  //     baconImg5,
+  //     width / 2,
+  //     height / 2,
+  //     baconImg5.width * scale,
+  //     baconImg5.height * scale,
+  //   );
   } else if (currentState === "flash50") {
     let cycleDuration = 1200;
     let flashDuration = 100;
@@ -371,75 +371,75 @@ function draw() {
       baconImg1.width * scale,
       baconImg1.height * scale,
     );
-  } else if (currentState === "bacon02flash") {
-    let cycleDuration = 1200;
-    let flashDuration = 100;
-    let cyclePosition = elapsed % cycleDuration;
-    if (cyclePosition < flashDuration) {
-      background(255);
-    } else {
-      background(0);
-    }
-    let scale = min(width / baconImg2.width, height / baconImg2.height) * 0.85;
-    image(
-      baconImg2,
-      width / 2,
-      height / 2,
-      baconImg2.width * scale,
-      baconImg2.height * scale,
-    );
-  } else if (currentState === "bacon03flash") {
-    let cycleDuration = 1200;
-    let flashDuration = 100;
-    let cyclePosition = elapsed % cycleDuration;
-    if (cyclePosition < flashDuration) {
-      background(255);
-    } else {
-      background(0);
-    }
-    let scale = min(width / baconImg3.width, height / baconImg3.height) * 0.85;
-    image(
-      baconImg3,
-      width / 2,
-      height / 2,
-      baconImg3.width * scale,
-      baconImg3.height * scale,
-    );
-  } else if (currentState === "bacon04flash") {
-    let cycleDuration = 1200;
-    let flashDuration = 100;
-    let cyclePosition = elapsed % cycleDuration;
-    if (cyclePosition < flashDuration) {
-      background(255);
-    } else {
-      background(0);
-    }
-    let scale = min(width / baconImg4.width, height / baconImg4.height) * 0.85;
-    image(
-      baconImg4,
-      width / 2,
-      height / 2,
-      baconImg4.width * scale,
-      baconImg4.height * scale,
-    );
-  } else if (currentState === "bacon05flash") {
-    let cycleDuration = 1200;
-    let flashDuration = 100;
-    let cyclePosition = elapsed % cycleDuration;
-    if (cyclePosition < flashDuration) {
-      background(255);
-    } else {
-      background(0);
-    }
-    let scale = min(width / baconImg5.width, height / baconImg5.height) * 0.85;
-    image(
-      baconImg5,
-      width / 2,
-      height / 2,
-      baconImg5.width * scale,
-      baconImg5.height * scale,
-    );
-  }
+  // } else if (currentState === "bacon02flash") {
+  //   let cycleDuration = 1200;
+  //   let flashDuration = 100;
+  //   let cyclePosition = elapsed % cycleDuration;
+  //   if (cyclePosition < flashDuration) {
+  //     background(255);
+  //   } else {
+  //     background(0);
+  //   }
+  //   let scale = min(width / baconImg2.width, height / baconImg2.height) * 0.85;
+  //   image(
+  //     baconImg2,
+  //     width / 2,
+  //     height / 2,
+  //     baconImg2.width * scale,
+  //     baconImg2.height * scale,
+  //   );
+  // } else if (currentState === "bacon03flash") {
+  //   let cycleDuration = 1200;
+  //   let flashDuration = 100;
+  //   let cyclePosition = elapsed % cycleDuration;
+  //   if (cyclePosition < flashDuration) {
+  //     background(255);
+  //   } else {
+  //     background(0);
+  //   }
+  //   let scale = min(width / baconImg3.width, height / baconImg3.height) * 0.85;
+  //   image(
+  //     baconImg3,
+  //     width / 2,
+  //     height / 2,
+  //     baconImg3.width * scale,
+  //     baconImg3.height * scale,
+  //   );
+  // } else if (currentState === "bacon04flash") {
+  //   let cycleDuration = 1200;
+  //   let flashDuration = 100;
+  //   let cyclePosition = elapsed % cycleDuration;
+  //   if (cyclePosition < flashDuration) {
+  //     background(255);
+  //   } else {
+  //     background(0);
+  //   }
+  //   let scale = min(width / baconImg4.width, height / baconImg4.height) * 0.85;
+  //   image(
+  //     baconImg4,
+  //     width / 2,
+  //     height / 2,
+  //     baconImg4.width * scale,
+  //     baconImg4.height * scale,
+  //   );
+  // } else if (currentState === "bacon05flash") {
+  //   let cycleDuration = 1200;
+  //   let flashDuration = 100;
+  //   let cyclePosition = elapsed % cycleDuration;
+  //   if (cyclePosition < flashDuration) {
+  //     background(255);
+  //   } else {
+  //     background(0);
+  //   }
+  //   let scale = min(width / baconImg5.width, height / baconImg5.height) * 0.85;
+  //   image(
+  //     baconImg5,
+  //     width / 2,
+  //     height / 2,
+  //     baconImg5.width * scale,
+  //     baconImg5.height * scale,
+  //   );
+  // }
 
   if (debugMode) {
     drawDebugOverlay(elapsed);
