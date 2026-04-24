@@ -410,6 +410,9 @@ function draw() {
     fill(0, 0, 0, overlayAlpha);
     noStroke();
     rect(0, 0, width, height);
+    fill(255);
+    noStroke();
+    text(currentText, width / 2, height - 40);
   } else if (currentState === "bacon01flickersubtle") {
     background(255);
     let scale = min(width / baconImg1.width, height / baconImg1.height) * 0.85;
@@ -424,6 +427,9 @@ function draw() {
     fill(0, 0, 0, flickerAlpha);
     noStroke();
     rect(0, 0, width, height);
+    fill(255);
+    noStroke();
+    text(currentText, width / 2, height - 40);
   } else if (currentState === "bacon01flickerheavy") {
     background(255);
     let scale = min(width / baconImg1.width, height / baconImg1.height) * 0.85;
@@ -438,6 +444,9 @@ function draw() {
     fill(0, 0, 0, flickerAlpha);
     noStroke();
     rect(0, 0, width, height);
+    fill(255);
+    noStroke();
+    text(currentText, width / 2, height - 40);
   } else if (currentState === "flash50") {
     let cycleDuration = 1200;
     let flashDuration = 100;
