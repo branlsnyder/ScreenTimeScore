@@ -296,7 +296,10 @@ function loadEvents(part, startMeasure) {
   }
 
   if (measureOffset > 0) {
-    while (eventIndex < events.length && events[eventIndex].time < measureOffset) {
+    while (
+      eventIndex < events.length &&
+      events[eventIndex].time < measureOffset
+    ) {
       eventIndex++;
     }
     if (eventIndex > 0) {
@@ -379,6 +382,9 @@ function draw() {
       baconImg1.width * scale,
       baconImg1.height * scale,
     );
+    fill(255);
+    noStroke();
+    text(currentText, width / 2, height - 40);
   } else if (currentState === "bacon01rise") {
     let progress =
       currentEventDuration > 0
@@ -451,10 +457,13 @@ function draw() {
       baconImg1.width * scale,
       baconImg1.height * scale,
     );
+    fill(255);
+    noStroke();
+    text(currentText, width / 2, height - 40);
+  }
 
-    if (debugMode) {
-      drawDebugOverlay(elapsed);
-    }
+  if (debugMode) {
+    drawDebugOverlay(elapsed);
   }
 
   function drawDebugOverlay(elapsed) {
