@@ -397,7 +397,7 @@ function draw() {
     fill(0, 0, 0, overlayAlpha);
     noStroke();
     rect(0, 0, width, height);
-  } else if (currentState === "bacon01bright") {
+  } else if (currentState === "bacon01flickersubtle") {
     background(255);
     let scale = min(width / baconImg1.width, height / baconImg1.height) * 0.85;
     image(
@@ -407,7 +407,21 @@ function draw() {
       baconImg1.width * scale,
       baconImg1.height * scale,
     );
-    let flickerAlpha = random(0, 0.3) * 255;
+    let flickerAlpha = random(0, 76);
+    fill(0, 0, 0, flickerAlpha);
+    noStroke();
+    rect(0, 0, width, height);
+  } else if (currentState === "bacon01flickerheavy") {
+    background(255);
+    let scale = min(width / baconImg1.width, height / baconImg1.height) * 0.85;
+    image(
+      baconImg1,
+      width / 2,
+      height / 2,
+      baconImg1.width * scale,
+      baconImg1.height * scale,
+    );
+    let flickerAlpha = random(0, 1) * 255;
     fill(0, 0, 0, flickerAlpha);
     noStroke();
     rect(0, 0, width, height);
