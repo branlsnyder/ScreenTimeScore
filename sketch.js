@@ -4,6 +4,7 @@ let currentState = "phoneDown";
 let currentText = "";
 let currentEventTime = 0;
 let currentEventDuration = 0;
+let currentMeasureNum = "";
 let table;
 let baconImg1;
 let selectedPart = null;
@@ -229,6 +230,7 @@ function resetApp() {
   currentText = "";
   currentEventTime = 0;
   currentEventDuration = 0;
+  currentMeasureNum = "";
   selectedPart = null;
   startTime = 0;
   isHost = false;
@@ -286,12 +288,14 @@ function loadEvents(part, startMeasure) {
     let txt = table.getString(r, textCol);
     let durStr = table.getString(r, "measureDur_s");
     let dur = durStr ? parseFloat(durStr) : 0;
+    let mNum = table.getString(r, "measureNum");
     let t = table.getNum(r, timeCol);
     events.push({
       time: t,
       state: st.trim(),
       text: txt ? txt.trim() : "",
       duration: dur * 1000,
+      measureNum: mNum ? mNum.trim() : "",
     });
   }
 
@@ -345,6 +349,9 @@ function draw() {
     currentText = events[eventIndex].text;
     currentEventTime = events[eventIndex].time;
     currentEventDuration = events[eventIndex].duration;
+    if (events[eventIndex].measureNum !== "") {
+      currentMeasureNum = events[eventIndex].measureNum;
+    }
     console.log(
       `[Player ${selectedPart}] Event ${eventIndex}: ${currentState} @ ${elapsed}ms`,
     );
@@ -478,7 +485,7 @@ function draw() {
     let lineHeight = 18;
 
     fill(0, 0, 0, 150);
-    rect(5, 45, 200, 110, 5);
+    rect(5, 45, 200, 128, 5);
 
     fill(255, 255, 0);
     text(`Player: ${selectedPart}`, debugX, debugY);
@@ -493,15 +500,17 @@ function draw() {
       debugX,
       debugY + lineHeight * 3,
     );
+    text(`Measure: ${currentMeasureNum}`, debugX, debugY + lineHeight * 4);
     text(
       `Clock Offset: ${clockOffset.toFixed(0)}ms`,
       debugX,
-      debugY + lineHeight * 4,
-    );
-    text(
-      `Next: ${eventIndex < events.length ? events[eventIndex].time + "ms" : "done"}`,
-      debugX,
       debugY + lineHeight * 5,
+    );
+    fill(230, 130, 255);
+    text(
+      `Next: ${eventIndex < events.length ? events[eventIndex].text || events[eventIndex].state : "done"}`,
+      debugX,
+      debugY + lineHeight * 6,
     );
     pop();
   }
