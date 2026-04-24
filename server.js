@@ -59,13 +59,14 @@ io.on("connection", (socket) => {
     }
   });
 
-  socket.on("start", () => {
+  socket.on("start", (data) => {
     if (socket === hostSocket) {
       const startTimestamp = Date.now() + 500;
-      console.log("Host triggered start at server time:", startTimestamp);
+      const startMeasure = (data && data.startMeasure) || 1;
+      console.log("Host triggered start at server time:", startTimestamp, "measure:", startMeasure);
 
       clients.forEach((clientData) => {
-        clientData.socket.emit("start", startTimestamp);
+        clientData.socket.emit("start", { startTime: startTimestamp, startMeasure });
       });
     }
   });

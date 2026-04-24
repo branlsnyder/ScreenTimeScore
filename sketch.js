@@ -2,12 +2,10 @@ let events = [];
 let eventIndex = 0;
 let currentState = "phoneDown";
 let currentText = "";
+let currentEventTime = 0;
+let currentEventDuration = 0;
 let table;
 let baconImg1;
-// let baconImg2;
-// let baconImg3;
-// let baconImg4;
-// let baconImg5;
 let selectedPart = null;
 let startTime = 0;
 let partButtons = [];
@@ -19,16 +17,15 @@ let isHost = false;
 let isWaiting = false;
 let connectedClients = [];
 let startBtn;
+let measureLabel;
+let measureInput;
+let measureOffset = 0;
 let debugMode = true;
 let lastStateUpdate = 0;
 
 function preload() {
   table = loadTable("onsets.csv", "csv", "header");
   baconImg1 = loadImage("images/bacon_figure-lying-flat.jpg");
-  // baconImg2 = loadImage("images/bacon_falling-figure.jpg");
-  // baconImg3 = loadImage("images/bacon_man-on-bed.jpg");
-  // baconImg4 = loadImage("images/bacon_fallen-figure.jpg");
-  // baconImg5 = loadImage("images/bacon_collapsed-figure.jpg");
 }
 
 function setup() {
@@ -200,6 +197,8 @@ function resetApp() {
   eventIndex = 0;
   currentState = "phoneDown";
   currentText = "";
+  currentEventTime = 0;
+  currentEventDuration = 0;
   selectedPart = null;
   startTime = 0;
   isHost = false;
@@ -229,10 +228,13 @@ function loadEvents(part) {
     let st = table.getString(r, stateCol);
     if (!st || st.trim() === "") continue;
     let txt = table.getString(r, textCol);
+    let durStr = table.getString(r, "measureDur_s");
+    let dur = durStr ? parseFloat(durStr) : 0;
     events.push({
       time: table.getNum(r, timeCol),
       state: st.trim(),
       text: txt ? txt.trim() : "",
+      duration: dur * 1000,
     });
   }
 }
@@ -268,6 +270,8 @@ function draw() {
   if (eventIndex < events.length && elapsed >= events[eventIndex].time) {
     currentState = events[eventIndex].state;
     currentText = events[eventIndex].text;
+    currentEventTime = events[eventIndex].time;
+    currentEventDuration = events[eventIndex].duration;
     console.log(
       `[Player ${selectedPart}] Event ${eventIndex}: ${currentState} @ ${elapsed}ms`,
     );
@@ -305,46 +309,38 @@ function draw() {
       baconImg1.width * scale,
       baconImg1.height * scale,
     );
-    // } else if (currentState === "bacon02") {
-    //   background(0);
-    //   let scale = min(width / baconImg2.width, height / baconImg2.height) * 0.85;
-    //   image(
-    //     baconImg2,
-    //     width / 2,
-    //     height / 2,
-    //     baconImg2.width * scale,
-    //     baconImg2.height * scale,
-    //   );
-    // } else if (currentState === "bacon03") {
-    //   background(0);
-    //   let scale = min(width / baconImg3.width, height / baconImg3.height) * 0.85;
-    //   image(
-    //     baconImg3,
-    //     width / 2,
-    //     height / 2,
-    //     baconImg3.width * scale,
-    //     baconImg3.height * scale,
-    //   );
-    // } else if (currentState === "bacon04") {
-    //   background(0);
-    //   let scale = min(width / baconImg4.width, height / baconImg4.height) * 0.85;
-    //   image(
-    //     baconImg4,
-    //     width / 2,
-    //     height / 2,
-    //     baconImg4.width * scale,
-    //     baconImg4.height * scale,
-    //   );
-    // } else if (currentState === "bacon05") {
-    //   background(0);
-    //   let scale = min(width / baconImg5.width, height / baconImg5.height) * 0.85;
-    //   image(
-    //     baconImg5,
-    //     width / 2,
-    //     height / 2,
-    //     baconImg5.width * scale,
-    //     baconImg5.height * scale,
-    //   );
+  } else if (currentState === "bacon01rise") {
+    let progress =
+      currentEventDuration > 0
+        ? constrain((elapsed - currentEventTime) / currentEventDuration, 0, 1)
+        : 0;
+    background(255);
+    let scale = min(width / baconImg1.width, height / baconImg1.height) * 0.85;
+    image(
+      baconImg1,
+      width / 2,
+      height / 2,
+      baconImg1.width * scale,
+      baconImg1.height * scale,
+    );
+    let overlayAlpha = lerp(255, 0, progress);
+    fill(0, 0, 0, overlayAlpha);
+    noStroke();
+    rect(0, 0, width, height);
+  } else if (currentState === "bacon01bright") {
+    background(255);
+    let scale = min(width / baconImg1.width, height / baconImg1.height) * 0.85;
+    image(
+      baconImg1,
+      width / 2,
+      height / 2,
+      baconImg1.width * scale,
+      baconImg1.height * scale,
+    );
+    let flickerAlpha = random(0, 0.3) * 255;
+    fill(0, 0, 0, flickerAlpha);
+    noStroke();
+    rect(0, 0, width, height);
   } else if (currentState === "flash50") {
     let cycleDuration = 1200;
     let flashDuration = 100;
@@ -371,75 +367,6 @@ function draw() {
       baconImg1.width * scale,
       baconImg1.height * scale,
     );
-    // } else if (currentState === "bacon02flash") {
-    //   let cycleDuration = 1200;
-    //   let flashDuration = 100;
-    //   let cyclePosition = elapsed % cycleDuration;
-    //   if (cyclePosition < flashDuration) {
-    //     background(255);
-    //   } else {
-    //     background(0);
-    //   }
-    //   let scale = min(width / baconImg2.width, height / baconImg2.height) * 0.85;
-    //   image(
-    //     baconImg2,
-    //     width / 2,
-    //     height / 2,
-    //     baconImg2.width * scale,
-    //     baconImg2.height * scale,
-    //   );
-    // } else if (currentState === "bacon03flash") {
-    //   let cycleDuration = 1200;
-    //   let flashDuration = 100;
-    //   let cyclePosition = elapsed % cycleDuration;
-    //   if (cyclePosition < flashDuration) {
-    //     background(255);
-    //   } else {
-    //     background(0);
-    //   }
-    //   let scale = min(width / baconImg3.width, height / baconImg3.height) * 0.85;
-    //   image(
-    //     baconImg3,
-    //     width / 2,
-    //     height / 2,
-    //     baconImg3.width * scale,
-    //     baconImg3.height * scale,
-    //   );
-    // } else if (currentState === "bacon04flash") {
-    //   let cycleDuration = 1200;
-    //   let flashDuration = 100;
-    //   let cyclePosition = elapsed % cycleDuration;
-    //   if (cyclePosition < flashDuration) {
-    //     background(255);
-    //   } else {
-    //     background(0);
-    //   }
-    //   let scale = min(width / baconImg4.width, height / baconImg4.height) * 0.85;
-    //   image(
-    //     baconImg4,
-    //     width / 2,
-    //     height / 2,
-    //     baconImg4.width * scale,
-    //     baconImg4.height * scale,
-    //   );
-    // } else if (currentState === "bacon05flash") {
-    //   let cycleDuration = 1200;
-    //   let flashDuration = 100;
-    //   let cyclePosition = elapsed % cycleDuration;
-    //   if (cyclePosition < flashDuration) {
-    //     background(255);
-    //   } else {
-    //     background(0);
-    //   }
-    //   let scale = min(width / baconImg5.width, height / baconImg5.height) * 0.85;
-    //   image(
-    //     baconImg5,
-    //     width / 2,
-    //     height / 2,
-    //     baconImg5.width * scale,
-    //     baconImg5.height * scale,
-    //   );
-    // }
 
     if (debugMode) {
       drawDebugOverlay(elapsed);
