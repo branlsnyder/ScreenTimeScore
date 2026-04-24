@@ -47,11 +47,12 @@ function setup() {
     connectedClients = clients;
   });
 
-  socket.on("start", (serverStartTime) => {
-    let localStartTime = serverStartTime - clockOffset;
-    startTime = localStartTime;
+  socket.on("start", (data) => {
+    let localStartTime = data.startTime - clockOffset;
+    let startMeasure = data.startMeasure || 1;
+    loadEvents(selectedPart, startMeasure);
+    startTime = localStartTime - measureOffset;
     isWaiting = false;
-    loadEvents(selectedPart);
   });
 
   runClockSync();
@@ -170,6 +171,34 @@ function selectPart(part) {
 }
 
 function createHostUI() {
+  let inputStyle = {
+    "font-size": "24px",
+    padding: "10px 16px",
+    border: "2px solid #666",
+    "border-radius": "8px",
+    "background-color": "#222",
+    color: "#ffffff",
+    width: "80px",
+    "text-align": "center",
+  };
+  let labelStyle = {
+    "font-size": "20px",
+    color: "#cccccc",
+  };
+
+  measureLabel = createElement("span", "Start at measure:");
+  for (let [prop, val] of Object.entries(labelStyle)) {
+    measureLabel.style(prop, val);
+  }
+  measureLabel.position(width / 2 - 160, height / 2 + 40);
+
+  measureInput = createInput("1", "number");
+  for (let [prop, val] of Object.entries(inputStyle)) {
+    measureInput.style(prop, val);
+  }
+  measureInput.attribute("min", "1");
+  measureInput.position(width / 2 + 50, height / 2 + 32);
+
   startBtn = createButton("Start Performance");
   let btnStyle = {
     "font-size": "32px",
@@ -186,7 +215,8 @@ function createHostUI() {
   }
   startBtn.position(width / 2 - startBtn.elt.offsetWidth / 2, height / 2 + 100);
   startBtn.mousePressed(() => {
-    socket.emit("start");
+    let startMeasure = parseInt(measureInput.value()) || 1;
+    socket.emit("start", { startMeasure });
     startBtn.attribute("disabled", "");
     startBtn.style("background-color", "#888");
   });
@@ -212,17 +242,43 @@ function resetApp() {
     startBtn.remove();
     startBtn = null;
   }
+  if (measureLabel) {
+    measureLabel.remove();
+    measureLabel = null;
+  }
+  if (measureInput) {
+    measureInput.remove();
+    measureInput = null;
+  }
+  measureOffset = 0;
 
   createPartButtons();
 }
 
-function loadEvents(part) {
+function loadEvents(part, startMeasure) {
   events = [];
   eventIndex = 0;
+  measureOffset = 0;
+  startMeasure = startMeasure || 1;
 
   let timeCol = "onset_ms_" + part;
   let stateCol = "state_" + part;
   let textCol = "text_" + part;
+
+  let measureStartTimeMs = 0;
+  if (startMeasure > 1) {
+    for (let r = 0; r < table.getRowCount(); r++) {
+      let mNum = table.getString(r, "measureNum");
+      if (mNum && parseInt(mNum) >= startMeasure) {
+        let playerTime = table.getNum(r, timeCol);
+        measureStartTimeMs = isNaN(playerTime)
+          ? table.getNum(r, "onset_ms_1")
+          : playerTime;
+        break;
+      }
+    }
+  }
+  measureOffset = measureStartTimeMs;
 
   for (let r = 0; r < table.getRowCount(); r++) {
     let st = table.getString(r, stateCol);
@@ -230,12 +286,26 @@ function loadEvents(part) {
     let txt = table.getString(r, textCol);
     let durStr = table.getString(r, "measureDur_s");
     let dur = durStr ? parseFloat(durStr) : 0;
+    let t = table.getNum(r, timeCol);
     events.push({
-      time: table.getNum(r, timeCol),
+      time: t,
       state: st.trim(),
       text: txt ? txt.trim() : "",
       duration: dur * 1000,
     });
+  }
+
+  if (measureOffset > 0) {
+    while (eventIndex < events.length && events[eventIndex].time < measureOffset) {
+      eventIndex++;
+    }
+    if (eventIndex > 0) {
+      let prev = events[eventIndex - 1];
+      currentState = prev.state;
+      currentText = prev.text;
+      currentEventTime = prev.time;
+      currentEventDuration = prev.duration;
+    }
   }
 }
 
@@ -267,7 +337,7 @@ function draw() {
   }
 
   let elapsed = Date.now() - startTime;
-  if (eventIndex < events.length && elapsed >= events[eventIndex].time) {
+  while (eventIndex < events.length && elapsed >= events[eventIndex].time) {
     currentState = events[eventIndex].state;
     currentText = events[eventIndex].text;
     currentEventTime = events[eventIndex].time;
