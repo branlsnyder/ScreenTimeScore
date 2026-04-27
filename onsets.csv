@@ -1,14 +1,14 @@
 ﻿onset_ms_1,state_1,text_1,onset_ms_2,state_2,text_2,onset_ms_3,state_3,text_3,onset_ms_4,state_4,text_4,onset_ms_5,state_5,text_5,measureNum,measureDur_s,phaseFactor,phaseBaseDur
-0,phoneDown,Hold Phone Up: 10,0,phoneDown,Hold Phone Up: 10,0,phoneDown,Hold Phone Up: 10,0,phoneDown,Hold Phone Up: 10,0,phoneDown,Hold Phone Up: 10,1,10,0.0125,4000
-1000,phoneDown,Hold Phone Up: 9,1000,phoneDown,Hold Phone Up: 9,1000,phoneDown,Hold Phone Up: 9,1000,phoneDown,Hold Phone Up: 9,1000,phoneDown,Hold Phone Up: 9,,,,
-2000,phoneDown,Hold Phone Up: 8,2000,phoneDown,Hold Phone Up: 8,2000,phoneDown,Hold Phone Up: 8,2000,phoneDown,Hold Phone Up: 8,2000,phoneDown,Hold Phone Up: 8,,,,
-3000,phoneDown,Hold Phone Up: 7,3000,phoneDown,Hold Phone Up: 7,3000,phoneDown,Hold Phone Up: 7,3000,phoneDown,Hold Phone Up: 7,3000,phoneDown,Hold Phone Up: 7,,,,
-4000,phoneDown,Hold Phone Up: 6,4000,phoneDown,Hold Phone Up: 6,4000,phoneDown,Hold Phone Up: 6,4000,phoneDown,Hold Phone Up: 6,4000,phoneDown,Hold Phone Up: 6,,,,
-5000,phoneDown,Hold Phone Up: 5,5000,phoneDown,Hold Phone Up: 5,5000,phoneDown,Hold Phone Up: 5,5000,phoneDown,Hold Phone Up: 5,5000,phoneDown,Hold Phone Up: 5,,,,
-6000,phoneDown,Hold Phone Up: 4,6000,phoneDown,Hold Phone Up: 4,6000,phoneDown,Hold Phone Up: 4,6000,phoneDown,Hold Phone Up: 4,6000,phoneDown,Hold Phone Up: 4,,,,
-7000,phoneDown,Hold Phone Up: 3,7000,phoneDown,Hold Phone Up: 3,7000,phoneDown,Hold Phone Up: 3,7000,phoneDown,Hold Phone Up: 3,7000,phoneDown,Hold Phone Up: 3,,,,
-8000,phoneDown,Hold Phone Up: 2,8000,phoneDown,Hold Phone Up: 2,8000,phoneDown,Hold Phone Up: 2,8000,phoneDown,Hold Phone Up: 2,8000,phoneDown,Hold Phone Up: 2,,,,
-9000,phoneDown,Hold Phone Up: 1,9000,phoneDown,Hold Phone Up: 1,9000,phoneDown,Hold Phone Up: 1,9000,phoneDown,Hold Phone Up: 1,9000,phoneDown,Hold Phone Up: 1,,,,
+0,phoneDown,Hold Phone Up: 10,0,phoneDown,Begin in 10,0,phoneDown,Begin in 10,0,phoneDown,Begin in 10,0,phoneDown,Begin in 10,1,10,0.0125,4000
+1000,phoneDown,Hold Phone Up: 9,1000,phoneDown,Begin in 9,1000,phoneDown,Begin in 9,1000,phoneDown,Begin in 9,1000,phoneDown,Begin in 9,,,,
+2000,phoneDown,Hold Phone Up: 8,2000,phoneDown,Begin in 8,2000,phoneDown,Begin in 8,2000,phoneDown,Begin in 8,2000,phoneDown,Begin in 8,,,,
+3000,phoneDown,Hold Phone Up: 7,3000,phoneDown,Begin in 7,3000,phoneDown,Begin in 7,3000,phoneDown,Begin in 7,3000,phoneDown,Begin in 7,,,,
+4000,phoneDown,Hold Phone Up: 6,4000,phoneDown,Begin in 6,4000,phoneDown,Begin in 6,4000,phoneDown,Begin in 6,4000,phoneDown,Begin in 6,,,,
+5000,phoneDown,Hold Phone Up: 5,5000,phoneDown,Begin in 5,5000,phoneDown,Begin in 5,5000,phoneDown,Begin in 5,5000,phoneDown,Begin in 5,,,,
+6000,phoneDown,Hold Phone Up: 4,6000,phoneDown,Begin in 4,6000,phoneDown,Begin in 4,6000,phoneDown,Begin in 4,6000,phoneDown,Begin in 4,,,,
+7000,phoneDown,Hold Phone Up: 3,7000,phoneDown,Begin in 3,7000,phoneDown,Begin in 3,7000,phoneDown,Begin in 3,7000,phoneDown,Begin in 3,,,,
+8000,phoneDown,Hold Phone Up: 2,8000,phoneDown,Begin in 2,8000,phoneDown,Begin in 2,8000,phoneDown,Begin in 2,8000,phoneDown,Begin in 2,,,,
+9000,phoneDown,Hold Phone Up: 1,9000,phoneDown,Begin in 1,9000,phoneDown,Begin in 1,9000,phoneDown,Begin in 1,9000,phoneDown,Begin in 1,,,,
 10000,bacon01rise,Gaze at Image,10000,bacon01rise,Gaze at Image,10000,bacon01rise,Gaze at Image,10000,bacon01rise,Gaze at Image,10000,bacon01rise,Gaze at Image,2,20,,
 30000,bacon01flickersubtle,Gaze at Image,30000,bacon01flickersubtle,Gaze at Image,30000,bacon01flickersubtle,Gaze at Image,30000,bacon01flickersubtle,Gaze at Image,30000,bacon01flickersubtle,Gaze at Image,3,20,,
 50000,phoneDown,"Tacet 6""",50000,phoneDown,"Tacet 6""",50000,phoneDown,"Tacet 6""",50000,phoneDown,"Tacet 6""",50000,phoneDown,"Tacet 6""",4,6,,
@@ -69,20 +69,16 @@
 310000,bacon01,Play,310000,bacon01,Play,310000,bacon01flash,Play (with flashes),310000,bacon01,Play,310000,phoneDown,"Tacet 40""",20,40,,
 350000,bacon01,Play,350000,bacon01,Play,350000,bacon01flash,Play (with flashes),350000,bacon01flash,Play (with flashes),350000,phoneDown,PICK UP INST.,21,5,,
 ,,,352500,bacon01flash,,,,,,,,,,,,,,
-355000,bacon01flash,"Play (with flashes) 
-(eventually fade out)",355000,bacon01flash,"Play (with flashes) 
-(eventually fade out)",355000,bacon01flash,"Play (with flashes) 
-(eventually fade out)",355000,bacon01flash,"Play (with flashes) 
-(eventually fade out)",355000,phoneDown,Play,22,210,,
-565000,phoneDown,"Play (with flashes) 
-(eventually fade out)",565000,phoneDown,"Play (with flashes) 
-(eventually fade out)",565000,phoneDown,"Play (with flashes) 
-(eventually fade out)",565000,phoneDown,"Play (with flashes) 
-(eventually fade out)",565000,phoneDown,Play,23,210,,
-775000,bacon01flickerheavy,"IGNORE PHONE 
-(play openly)",775000,bacon01flickerheavy,"IGNORE PHONE 
-(play openly)",775000,bacon01flickerheavy,"IGNORE PHONE 
-(play openly)",775000,bacon01flickerheavy,"IGNORE PHONE 
-(play openly)",775000,bacon01flickerheavy,"IGNORE PHONE 
+355000,bacon01flash,Play (with flashes),355000,bacon01flash,Play (with flashes),355000,bacon01flash,Play (with flashes),355000,bacon01flash,Play (with flashes),355000,phoneDown,Play,22,90,,
+445000,phoneDown,"Play (with flashes) 
+(eventually fade out)",445000,phoneDown,"Play (with flashes) 
+(eventually fade out)",445000,phoneDown,"Play (with flashes) 
+(eventually fade out)",445000,phoneDown,"Play (with flashes) 
+(eventually fade out)",445000,phoneDown,Play,23,60,,
+505000,bacon01flickerheavy,"IGNORE PHONE 
+(play openly)",505000,bacon01flickerheavy,"IGNORE PHONE 
+(play openly)",505000,bacon01flickerheavy,"IGNORE PHONE 
+(play openly)",505000,bacon01flickerheavy,"IGNORE PHONE 
+(play openly)",505000,bacon01flickerheavy,"IGNORE PHONE 
 (play openly)",24,20,,
-795000,phoneDown,"(Play, then end)",795000,phoneDown,"(Play, then end)",795000,phoneDown,"(Play, then end)",795000,phoneDown,"(Play, then end)",795000,phoneDown,"(Play, then end)",25,10000,,
+525000,phoneDown,"(Play, then end)",525000,phoneDown,"(Play, then end)",525000,phoneDown,"(Play, then end)",525000,phoneDown,"(Play, then end)",525000,phoneDown,"(Play, then end)",25,10000,,
