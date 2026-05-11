@@ -69,16 +69,20 @@
 310000,bacon01,Play,310000,bacon01,Play,310000,bacon01flash,Play (with flashes),310000,bacon01,Play,310000,phoneDown,"Tacet 40""",20,40,,
 350000,bacon01,Play,350000,bacon01,Play,350000,bacon01flash,Play (with flashes),350000,bacon01flash,Play (with flashes),350000,phoneDown,PICK UP INST.,21,5,,
 ,,,352500,bacon01flash,,,,,,,,,,,,,,
-355000,bacon01flash,Play (with flashes),355000,bacon01flash,Play (with flashes),355000,bacon01flash,Play (with flashes),355000,bacon01flash,Play (with flashes),355000,phoneDown,Play,22,90,,
-445000,phoneDown,"Play (with flashes) 
-(eventually fade out)",445000,phoneDown,"Play (with flashes) 
-(eventually fade out)",445000,phoneDown,"Play (with flashes) 
-(eventually fade out)",445000,phoneDown,"Play (with flashes) 
-(eventually fade out)",445000,phoneDown,Play,23,60,,
-505000,bacon01flickerheavy,"IGNORE PHONE 
-(play openly)",505000,bacon01flickerheavy,"IGNORE PHONE 
-(play openly)",505000,bacon01flickerheavy,"IGNORE PHONE 
-(play openly)",505000,bacon01flickerheavy,"IGNORE PHONE 
-(play openly)",505000,bacon01flickerheavy,"IGNORE PHONE 
+355000,bacon01flash,"Play (with flashes) 
+(eventually fade out)",355000,bacon01flash,"Play (with flashes) 
+(eventually fade out)",355000,bacon01flash,"Play (with flashes) 
+(eventually fade out)",355000,bacon01flash,"Play (with flashes) 
+(eventually fade out)",355000,phoneDown,Play,22,60,,
+415000,phoneDown,"Play (with flashes) 
+(eventually fade out)",415000,phoneDown,"Play (with flashes) 
+(eventually fade out)",415000,phoneDown,"Play (with flashes) 
+(eventually fade out)",415000,phoneDown,"Play (with flashes) 
+(eventually fade out)",415000,phoneDown,Play,23,210,,
+625000,bacon01flickerheavy,"IGNORE PHONE 
+(play openly)",625000,bacon01flickerheavy,"IGNORE PHONE 
+(play openly)",625000,bacon01flickerheavy,"IGNORE PHONE 
+(play openly)",625000,bacon01flickerheavy,"IGNORE PHONE 
+(play openly)",625000,bacon01flickerheavy,"IGNORE PHONE 
 (play openly)",24,20,,
-525000,phoneDown,"(Play, then end)",525000,phoneDown,"(Play, then end)",525000,phoneDown,"(Play, then end)",525000,phoneDown,"(Play, then end)",525000,phoneDown,"(Play, then end)",25,10000,,
+645000,phoneDown,"(Play, then end)",645000,phoneDown,"(Play, then end)",645000,phoneDown,"(Play, then end)",645000,phoneDown,"(Play, then end)",645000,phoneDown,"(Play, then end)",25,10000,,
