@@ -11,7 +11,12 @@
 9000,phoneDown,Hold Phone Up: 1,9000,phoneDown,Begin in 1,9000,phoneDown,Begin in 1,9000,phoneDown,Begin in 1,9000,phoneDown,Begin in 1,,,,
 10000,bacon01rise,Gaze at Image,10000,bacon01rise,Gaze at Image,10000,bacon01rise,Gaze at Image,10000,bacon01rise,Gaze at Image,10000,bacon01rise,Gaze at Image,2,20,,
 30000,bacon01flickersubtle,Gaze at Image,30000,bacon01flickersubtle,Gaze at Image,30000,bacon01flickersubtle,Gaze at Image,30000,bacon01flickersubtle,Gaze at Image,30000,bacon01flickersubtle,Gaze at Image,3,20,,
-50000,phoneDown,"Tacet 6""",50000,phoneDown,"Tacet 6""",50000,phoneDown,"Tacet 6""",50000,phoneDown,"Tacet 6""",50000,phoneDown,"Tacet 6""",4,6,,
+50000,phoneDown,"Phone Down
+Tacet 6""",50000,phoneDown,"Phone Down
+Tacet 6""",50000,phoneDown,"Phone Down
+Tacet 6""",50000,phoneDown,"Phone Down
+Tacet 6""",50000,phoneDown,"Phone Down
+Tacet 6""",4,6,,
 56000,phoneDown,"Tacet 24""",56000,phoneDown,"Tacet 24""",56000,phoneUp,"Phone Up (4"")",56000,phoneUp,"Phone Up (4.05"")",56000,phoneDown,"Tacet 24""",5,24,,
 ,,,,,,60000,phoneDown,"Phone Down (4"")",60050,phoneDown,"Phone Down (4.05"")",,,,,,,
 ,,,,,,64000,phoneUp,"Phone Up (4"")",64100,phoneUp,"Phone Up (4.05"")",,,,,,,
