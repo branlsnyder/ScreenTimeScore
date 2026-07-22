@@ -11,25 +11,33 @@ A networked performance score for up to 5 players + 1 host, where smartphone scr
 
 ## Visual States
 
-| State | Display |
-|---|---|
-| `phoneUp` | White screen with text |
-| `phoneDown` | Black screen with text |
-| `bacon01` | Francis Bacon figure image on white background |
-| `bacon01rise` | Bacon image fading in from black overlay |
-| `bacon01flickersubtle` | Bacon image with subtle random dark overlay |
-| `bacon01flickerheavy` | Bacon image with heavy random full-range flicker |
-| `flash50` | Alternating black/white flash at 1.2s cycle |
-| `bacon01flash` | Bacon image with black/white flash cycle |
+| State                  | Display                                          |
+| ---------------------- | ------------------------------------------------ |
+| `phoneUp`              | White screen with text                           |
+| `phoneDown`            | Black screen with text                           |
+| `bacon01`              | Francis Bacon figure image on white background   |
+| `bacon01rise`          | Bacon image fading in from black overlay         |
+| `bacon01flickersubtle` | Bacon image with subtle random dark overlay      |
+| `bacon01flickerheavy`  | Bacon image with heavy random full-range flicker |
+| `flash50`              | Alternating black/white flash at 1.2s cycle      |
+| `bacon01flash`         | Bacon image with black/white flash cycle         |
 
-## Setup
+## Quick Start (No Terminal Needed)
+
+1. Install [Node.js](https://nodejs.org) (LTS version) — only needed once
+2. Double-click `start.command` (macOS) or `start.bat` (Windows)
+3. The server starts and shows a URL — open that URL on all phones + the laptop
+
+All devices must be on the **same Wi-Fi network**.
+
+## Manual Setup
 
 ```bash
 npm install
 npm start
 ```
 
-The server runs on `http://localhost:3000`. For networked devices, connect using the local IP address on the same network.
+The server runs on `http://localhost:3000`. For networked devices, connect using the local IP address printed in the console.
 
 ## Tech
 

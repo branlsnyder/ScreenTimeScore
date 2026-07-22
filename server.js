@@ -2,6 +2,20 @@ const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 const path = require("path");
+const os = require("os");
+const qrcode = require("qrcode-terminal");
+
+function getLocalIP() {
+  const interfaces = os.networkInterfaces();
+  for (const name of Object.keys(interfaces)) {
+    for (const iface of interfaces[name]) {
+      if (iface.family === "IPv4" && !iface.internal) {
+        return iface.address;
+      }
+    }
+  }
+  return "localhost";
+}
 
 const app = express();
 const httpServer = createServer(app);
@@ -87,6 +101,12 @@ io.on("connection", (socket) => {
 });
 
 httpServer.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-  console.log(`For other devices, use http://<your-ip>:${PORT}`);
+  const localIP = getLocalIP();
+  const url = `http://${localIP}:${PORT}`;
+  const link = `\x1B]8;;${url}\x07${url}\x1B]8;;\x07`;
+
+  console.log(`\nServer running on http://localhost:${PORT}`);
+  console.log(`Open on other devices: ${link}\n`);
+  qrcode.generate(url, { small: true }, (qr) => console.log(qr));
+  console.log("\nScan the QR code with your phone camera to open.\n");
 });
