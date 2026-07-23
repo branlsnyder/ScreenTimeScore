@@ -1,5 +1,5 @@
 #!/bin/bash
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/Application Files"
 
 if ! command -v node &> /dev/null; then
     echo "Node.js is not installed."
