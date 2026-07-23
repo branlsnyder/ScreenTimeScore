@@ -1,15 +1,33 @@
-# ScreenTimeScore
+# Screen Time Score
 
-A networked performance score for up to 5 players + 1 host, where smartphone screens serve as the instrument. Each player follows a precisely-timed sequence of visual states (white screen, black screen, images, flickers, flashes) displayed on their device, synchronized across all players via WebSocket.
+The score for performing 'Screen Time' by Brandon Woo Snyder (2026). 
+
+A networked performance score for 5 musicians, where each's smartphone screen directs their playing. Each musician follows a precisely-timed sequence of visual states (white screen, black screen, images, flickers, flashes) displayed on their device, synchronized across all players.
+
+## Technical Needs
+- **5 smartphones and 1 computer**
+- All devices must be on the **same Wi-Fi network**.
+- Install [Node.js](https://nodejs.org) (LTS version) — only needed once
 
 ## How It Works
 
-- **Players 1–5** connect as performers. Each player selects their part on the starting screen, then waits for the host to begin.
-- **Player 6 (Laptop)** acts as the host. The host sees a control panel showing all connected players and a "Start Performance" button.
-- When the host starts, every player's device synchronizes to a shared clock and begins executing its part of the score simultaneously.
-- The score is defined in `onsets.csv`, a millisecond-precision timeline with per-player columns for timing, visual state, and text instructions.
+1. **On the laptop**, double-click the **Launch-Score** file (Launch-Score.bat for Windows, Launch-Score.command for MacOS)
+2. **Players 1–5** connect on smartphones. Open the link displayed by Launch-Score. 
+3. **Players 1–5** select your player number on the start screen and wait for the score to being. 
+4. **On the laptop** select "Laptop"
+5. The laptop controls the score. The laptop sees a control panel showing all connected players and a "Start Performance" button.
+
+## Troubleshooting
+
+- Node.js must be installed
+- The laptop and all smartphones must be on the same WiFi network.
+
+
 
 ## Visual States
+
+- The score is defined in `onsets.csv`, a millisecond-precision timeline with per-player columns for timing, visual state, and text instructions.
+
 
 | State                  | Display                                          |
 | ---------------------- | ------------------------------------------------ |

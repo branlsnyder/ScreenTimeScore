@@ -106,7 +106,9 @@ httpServer.listen(PORT, () => {
   const link = `\x1B]8;;${url}\x07${url}\x1B]8;;\x07`;
 
   console.log(`\nServer running on http://localhost:${PORT}`);
-  console.log(`Open on other devices: ${link}\n`);
+  console.log(`\n\x1b[1;103;30mOpen on this computer: http://localhost:${PORT}\x1b[0m`);
+  console.log(`\n`);
+  console.log(`\x1b[1;103;30mOpen on smartphones: ${link}\x1b[0m\n`);
   qrcode.generate(url, { small: true }, (qr) => console.log(qr));
   console.log("\nScan the QR code with your phone camera to open.\n");
 });

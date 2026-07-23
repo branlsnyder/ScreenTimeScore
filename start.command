@@ -16,7 +16,7 @@ fi
 
 echo ""
 echo "=========================================="
-echo "  ScreenTimeScore Server"
+echo "  Screen Time Score Server"
 echo "=========================================="
 echo ""
 node server.js
