@@ -27,6 +27,19 @@ app.use(express.static(path.join(__dirname)));
 
 const clients = new Map();
 let hostSocket = null;
+const HEARTBEAT_INTERVAL = 2000;
+const STALE_THRESHOLD = 6000;
+
+setInterval(() => {
+  let changed = false;
+  const now = Date.now();
+  for (const [id, data] of clients.entries()) {
+    const wasStale = data.stale;
+    data.stale = !data.lastHeartbeat || (now - data.lastHeartbeat) > STALE_THRESHOLD;
+    if (data.stale !== wasStale) changed = true;
+  }
+  if (changed) broadcastClientList();
+}, HEARTBEAT_INTERVAL);
 
 function broadcastClientList() {
   const clientList = Array.from(clients.entries()).map(([id, data]) => ({
@@ -35,6 +48,7 @@ function broadcastClientList() {
     state: data.state || "waiting",
     eventIndex: data.eventIndex || 0,
     elapsed: data.elapsed || 0,
+    stale: !!data.stale,
   }));
   if (hostSocket) {
     hostSocket.emit("client-list", clientList);
@@ -45,7 +59,7 @@ io.on("connection", (socket) => {
   console.log("New connection:", socket.id);
 
   socket.on("register-client", (part) => {
-    clients.set(socket.id, { part, socket });
+    clients.set(socket.id, { part, socket, lastHeartbeat: Date.now(), stale: false });
     console.log(`Client registered as Player ${part}:`, socket.id);
     broadcastClientList();
   });
@@ -61,6 +75,17 @@ io.on("connection", (socket) => {
       clientTime,
       serverTime: Date.now(),
     });
+  });
+
+  socket.on("heartbeat", (data) => {
+    if (clients.has(socket.id)) {
+      const clientData = clients.get(socket.id);
+      clientData.lastHeartbeat = Date.now();
+      if (clientData.stale) {
+        clientData.stale = false;
+        broadcastClientList();
+      }
+    }
   });
 
   socket.on("state-update", (data) => {

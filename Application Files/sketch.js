@@ -23,6 +23,8 @@ let measureInput;
 let measureOffset = 0;
 let debugMode = true;
 let lastStateUpdate = 0;
+let heartbeatInterval = null;
+let connectionStatus = "connected";
 
 function preload() {
   table = loadTable("onsets.csv", "csv", "header");
@@ -54,6 +56,38 @@ function setup() {
     loadEvents(selectedPart, startMeasure);
     startTime = localStartTime - measureOffset;
     isWaiting = false;
+  });
+
+  socket.on("connect", () => {
+    connectionStatus = "connected";
+    startHeartbeat();
+    if (selectedPart !== null) {
+      if (isHost) {
+        socket.emit("register-host");
+      } else {
+        socket.emit("register-client", selectedPart);
+      }
+    }
+  });
+
+  socket.on("disconnect", () => {
+    connectionStatus = "disconnected";
+  });
+
+  socket.on("reconnect", () => {
+    connectionStatus = "connected";
+    startHeartbeat();
+    if (selectedPart !== null) {
+      if (isHost) {
+        socket.emit("register-host");
+      } else {
+        socket.emit("register-client", selectedPart);
+      }
+    }
+  });
+
+  socket.on("connect_error", () => {
+    connectionStatus = "disconnected";
   });
 
   runClockSync();
@@ -106,6 +140,15 @@ function runClockSync() {
   });
 
   doSync();
+}
+
+function startHeartbeat() {
+  if (heartbeatInterval) clearInterval(heartbeatInterval);
+  heartbeatInterval = setInterval(() => {
+    if (socket && socket.connected && selectedPart !== null) {
+      socket.emit("heartbeat", { part: selectedPart });
+    }
+  }, 2000);
 }
 
 function createPartButtons() {
@@ -168,6 +211,7 @@ function selectPart(part) {
     isHost = false;
     isWaiting = true;
     socket.emit("register-client", part);
+    startHeartbeat();
   }
 }
 
@@ -236,6 +280,12 @@ function resetApp() {
   isHost = false;
   isWaiting = false;
   connectedClients = [];
+  connectionStatus = "connected";
+
+  if (heartbeatInterval) {
+    clearInterval(heartbeatInterval);
+    heartbeatInterval = null;
+  }
 
   for (let b of partButtons) b.remove();
   partButtons = [];
@@ -482,6 +532,10 @@ function draw() {
     drawDebugOverlay(elapsed);
   }
 
+  if (!isHost) {
+    drawConnectionBar();
+  }
+
   function drawDebugOverlay(elapsed) {
     push();
     textAlign(LEFT, TOP);
@@ -524,6 +578,24 @@ function draw() {
     pop();
   }
 
+  function drawConnectionBar() {
+    push();
+    noStroke();
+    if (connectionStatus === "connected") {
+      fill(50, 200, 50, 180);
+    } else {
+      fill(200, 50, 50, 200);
+    }
+    rect(0, 0, width, 4);
+    if (connectionStatus === "disconnected") {
+      fill(255, 255, 255, 200);
+      textAlign(CENTER, CENTER);
+      textSize(14);
+      text("Connection lost — reconnecting...", width / 2, 18);
+    }
+    pop();
+  }
+
   function drawHostScreen() {
     background(30);
     fill(255);
@@ -562,13 +634,22 @@ function draw() {
         fill(stateColor);
         rect(x, y, boxWidth, boxHeight, 8);
 
+        if (c.stale) {
+          noFill();
+          stroke(255, 180, 0);
+          strokeWeight(3);
+          rect(x, y, boxWidth, boxHeight, 8);
+          noStroke();
+        }
+
         fill(0);
         textSize(20);
         text(`Player ${c.part}`, x + 10, y + 10);
 
         textSize(14);
         fill(50);
-        text(`State: ${c.state || "waiting"}`, x + 10, y + 35);
+        let statusText = c.stale ? "STALE" : (c.state || "waiting");
+        text(`State: ${statusText}`, x + 10, y + 35);
         text(
           `Event: ${c.eventIndex || 0}  |  ${((c.elapsed || 0) / 1000).toFixed(1)}s`,
           x + 10,
@@ -578,6 +659,15 @@ function draw() {
     }
 
     textAlign(CENTER, CENTER);
+
+    let stalePlayers = connectedClients.filter(c => c.stale);
+    if (stalePlayers.length > 0) {
+      let staleNames = stalePlayers.map(c => `Player ${c.part}`).join(", ");
+      fill(200, 50, 50);
+      noStroke();
+      textSize(18);
+      text(`⚠ ${staleNames} connection${stalePlayers.length > 1 ? "s" : ""} stale — refresh their browser`, width / 2, height - 190);
+    }
 
     if (startBtn) {
       startBtn.position(width / 2 - startBtn.elt.offsetWidth / 2, height - 150);
