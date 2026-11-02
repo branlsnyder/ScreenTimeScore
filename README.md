@@ -4,9 +4,9 @@ The score for performing 'Screen Time' by Brandon Woo Snyder (2026). The musicia
 
 ## Equipment Needs
 To run the score you will need: 
-- **5 smartphones and 1 computer**
-- All devices must be on the **same Wi-Fi network**.
-- Install [Node.js](https://nodejs.org) (LTS version) — only needed once
+- 5 smartphones and 1 computer
+- All devices must be on the same Wi-Fi network.
+- Install [Node.js](https://nodejs.org) (LTS version) on the laptop
 
 ## How To Run The Score
 1. **On the laptop**, double-click the **Launch-Score** file (Launch-Score.bat for Windows, Launch-Score.command for MacOS)
