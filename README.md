@@ -1,16 +1,14 @@
 # Screen Time Score
 
-The score for performing 'Screen Time' by Brandon Woo Snyder (2026). 
+The score for performing 'Screen Time' by Brandon Woo Snyder (2026). The musicians read the score from their smartphone web browser. 
 
-A networked performance score for 5 musicians, where each's smartphone screen directs their playing. Each musician follows a precisely-timed sequence of visual states (white screen, black screen, images, flickers, flashes) displayed on their device, synchronized across all players.
-
-## Technical Needs
+## Equipment Needs
+To run the score you will need: 
 - **5 smartphones and 1 computer**
 - All devices must be on the **same Wi-Fi network**.
 - Install [Node.js](https://nodejs.org) (LTS version) — only needed once
 
-## How It Works
-
+## How To Run The Score
 1. **On the laptop**, double-click the **Launch-Score** file (Launch-Score.bat for Windows, Launch-Score.command for MacOS)
 2. **Players 1–5** connect on smartphones. Open the link displayed by Launch-Score. 
 3. **Players 1–5** select your player number on the start screen and wait for the score to being. 
@@ -22,11 +20,14 @@ A networked performance score for 5 musicians, where each's smartphone screen di
 - Node.js must be installed
 - The laptop and all smartphones must be on the same WiFi network.
 
+That's it! 
 
+## About the Score:
+Though not necessary for performing, here are a few technical specs about the score, for those who may be curious:
 
-## Visual States
+## Notation
 
-- The score is defined in `onsets.csv`, a millisecond-precision timeline with per-player columns for timing, visual state, and text instructions.
+- All the events in the score are scripted in `onsets.csv`, which lists for each of the 5 musicians a 'state' and when in time to display that state. These states are small text scores, occasionally augmented by flashing lights or images.
 
 
 | State                  | Display                                          |
@@ -40,47 +41,13 @@ A networked performance score for 5 musicians, where each's smartphone screen di
 | `flash50`              | Alternating black/white flash at 1.2s cycle      |
 | `bacon01flash`         | Bacon image with black/white flash cycle         |
 
-## Quick Start (No Terminal Needed)
+## The Code
+The events in `onsets.csv` are converted into a real-time video score that is played from a web browser. The code includes the following tools:
 
-1. Install [Node.js](https://nodejs.org) (LTS version) — only needed once
-2. Double-click `start.command` (macOS) or `start.bat` (Windows)
-3. The server starts and shows a URL — open that URL on all phones + the laptop
+- **p5.js** – creates/loads all the visual matter on screen.
+- **Socket.IO** – facilitates synchronization across all 5 smartphones.
 
-All devices must be on the **same Wi-Fi network**.
+## AI disclosure
+The AI coding tools OpenCode and Big Pickle were used in the creation of the code that renders `onsets.csv` onto the musicians' smartphones
 
-## Manual Setup
-
-```bash
-npm install
-npm start
-```
-
-The server runs on `http://localhost:3000`. For networked devices, connect using the local IP address printed in the console.
-
-## Tech
-
-- **p5.js** – canvas rendering on each device
-- **Socket.IO** – real-time clock sync, state broadcasting, host control
-- **Express** – static file server
-- Clock sync uses median offset from 5 round-trip measurements to minimize latency drift across devices.
-
-## Project Structure
-
-```
-ScreenTimeScore/
-├── server.js          – Node.js/Express + Socket.IO host
-├── sketch.js          – p5.js client logic (states, sync, UI)
-├── index.html         – entry point
-├── onsets.csv         – the score: per-player, per-measure timing
-├── images/            – Francis Bacon painting references
-│   ├── bacon_figure-lying-flat.jpg
-│   ├── bacon_collapsed-figure.jpg
-│   ├── bacon_fallen-figure.jpg
-│   ├── bacon_falling-figure.jpg
-│   └── bacon_man-on-bed.jpg
-└── archivedOnsets/    – earlier score drafts
-```
-
-## Notation / CSV Format
-
-Each player has three columns in the CSV: `onset_ms_N`, `state_N`, `text_N`. Additional columns include `measureNum`, `measureDur_s`, and experimental phase parameters. Empty cells indicate no event change at that moment for that player.
+No AI was used in the creation of this README.md, nor in the composing of Screen Time (that is, the creation of `onsets.csv` nor the reference score PDF)
