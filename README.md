@@ -9,7 +9,7 @@ To run the score you will need:
 - Install [Node.js](https://nodejs.org) (LTS version) on the laptop
 
 ## How To Run The Score
-1. **On the laptop**, double-click the **Launch-Score** file (Launch-Score.bat for Windows, Launch-Score.command for MacOS)
+1. **On the laptop**, double-click the **start** file (start-FOR-MACOS.command for MacOS, start-FOR-WINDOWS for Windows)
 2. **Players 1–5** connect on smartphones. Open the link displayed by Launch-Score. 
 3. **Players 1–5** select your player number on the start screen and wait for the score to being. 
 4. **On the laptop** select "Laptop"
